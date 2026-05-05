@@ -9,7 +9,7 @@ import pandas as pd
 @st.cache_resource
 def init_connection():
     credentials = dict(st.secrets["gcp_service_account"])
-    service_account_email = credentials.get("client_email", "未知帳號")
+    gc = gspread.service_account_from_dict(credentials)
     return gc
 
 
